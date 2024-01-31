@@ -1,10 +1,31 @@
 # Tuto typescript
 
 ## Installation
-npm init -y
-crée le package.json
-npm install typescript --save-dev (crée le dossier node module et crée les dépendances dans le document package.json)
 
-npx tsc app.ts : cette commande permet de trancrire un document typescript en javascript. 
+- Créer un nouveau dossier à partir du terminal où vous souhaitez ranger votre projet. (mkdir "nom-de-votre-projet")
 
-Par convention, mettre le document "app.ts" dans un dossier src, et le fichier "app.js" dans le dist
+- A partir du terminal, initialisez le package.json dans le dossier fraîchement créé (npm init -y)
+
+- Ensuite, dans le terminal, tapez la commande : npm install typescript --save-dev. Cela permettra de créer le dossier node module et de créer les dépendances dans le document package.json
+
+- Si ce n'est pas déjà fait, ouvrez votre IDE puis ouvrez le dossier de votre projet. Vous allez créer deux dossiers : un dossier "dist" et un dossier "src". Dans le dossier src nous retrouverons notre document typescript. Vous pouvez dès à présent le créer. Ici, par exemple, je l'ai appelé "app.ts"
+
+- Grâce à la commande npx tsc src/app.ts, vous allez pouvoir créer un document .js qui transcrira votre typescript en javascript. Ce document se retrouvera dans le dossier dist.
+
+- Dans votre projet, vous pourrez créer le document tsconfig.json, et écrire : 
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2022",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "dist"
+  },
+
+  "include": [" src/**/* "],
+  "exclude": [" **/*.spec.ts "],
+  "files": [" src/app.ts "]
+}
+
+Ce qui est intéressant à voir, c'est que maintenant que la page est configurée, pour conpiler le projet, il ne sera plus nécessaire de faire la commande npx tsc src/app.ts. Puisque vous avez déjà précisé où ce situait le document ts, vous pourrez simplement faire la commande npx tsc.
