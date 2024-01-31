@@ -7,9 +7,11 @@ form.addEventListener("submit", function (event) {
 });
 
 function result (resultElement: any) {
+    const currency = document.querySelector('#currency') as HTMLSpanElement
     const weight = document.querySelector('#weight-select') as HTMLSelectElement
     const size = document.querySelector('#size-select') as HTMLSelectElement
     const sendTo = document.querySelector('#send-to-select') as HTMLSelectElement
+    
     
     let weightResult: number = 0
 
@@ -29,13 +31,28 @@ if (size.value === "more-150cm" ){
 
 let totalCost: number = weightResult + sizeResult;
 
-if (sendTo.value === "canada"){
+if (sendTo.value === "france"){
+    totalCost
+    currency.textContent = "€"
+} else if (sendTo.value === "canada"){
     if (totalCost > 12.5 ){
-        totalCost *= 1.15;
+        totalCost *= 1.15
+        totalCost *= 1,5
+        currency.textContent = "$";
+    } else {
+        totalCost *= 1,5
+        currency.textContent = "$"
     }
+    
+} else {
+    totalCost *= 130
+    currency.textContent = "¥"
 };
 
-resultElement.textContent = "le coût d'envoi est de : " + totalCost;
+
+
+
+resultElement.textContent = totalCost;
 }
 
 /*
