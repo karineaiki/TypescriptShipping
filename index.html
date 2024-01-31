@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Calcul d'envoi d'un colis</title>
+</head>
+<body>
+  <label for="weight-select">Poids du colis</label>
+<br>
+<form>
+  <select name="weight" id="weight-select">
+    <option value="">Choisissez l'option</option>
+    <option value="less-1kg">Moins de 1kg</option>
+    <option value="between-one-and-three">Entre 1 et 3kg</option>
+    <option value="more-3kg">Plus de 3kg</option>
+  </select>
+  <br>
+  <label for="size-select">Taille du colis</label>
+  <br>
+  <select name="size" id="size-select">
+    <option value="">Choisissez la taille</option>
+    <option value="less-150cm">Moins de 150cm</option>
+    <option value="more-150cm">Plus de 150cm</option>
+  </select>
+  <br>
+  <label for="send-to-select">Destination</label>
+  <br>
+  <select name="send-to" id="send-to-select">
+    <option value="france">France</option>
+    <option value="canada">Canada</option>
+    <option value="japon">Japon</option>
+  </select>
+  <br>
+  <button type="submit">Calculer le coût d'envoi</button>
+  <p id="result"></p>
+  <p id="currency"></p>
+  <br>
+</form>
+
+
+    <script src= "dist/app.js"></script>
+</body>
+</html>
