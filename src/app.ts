@@ -1,10 +1,21 @@
+// Choix d'un formulaire HTML afin d'afficher et mieux comprendre le fonctionnement de l'application
+
 const resultElement = document.querySelector('#result') as HTMLParagraphElement
 const form = document.querySelector("form") as HTMLFormElement
 
 form.addEventListener("submit", function (event) {
+    // event.preventDefault() permet que la page n'envoie pas le formulaire et ne rafraichisse pas la page au click ; 
+    // la fonction result est lancée au click de "submit"
     event.preventDefault();
     result(resultElement);
 });
+
+// la fonction result centralise plusieurs choses : 
+// la récupération des choix de l'utilisateur dans le formulaire
+// le calcul du prix en euro selon le poids du colis
+// le calcul du prix en euros selon la taille du colis
+// le calcul de la taxe douanière selon le pays d'envoi 
+// le changement de devise selon le pays d'envoi du colis
 
 function result(resultElement : any) {
     const currency = document.querySelector('#currency') as HTMLSpanElement
